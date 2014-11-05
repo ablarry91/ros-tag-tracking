@@ -126,15 +126,15 @@ Generally speaking, there is a golden ratio between camera resolution and the ph
 
 **Noise estimation**
 
-ar_sys: .1 pixel @ 30cm distance
-visp_auto_tracker: .01*pi deviation, +/- 2mm at 1 foot distance  
-ar_track_alvar: .1 pixel @ 30cm distance
+ar_sys: +/-.1 pixel @ 30cm distance
+visp_auto_tracker: +/- 2mm at 1 foot distance  
+ar_track_alvar: +/-.1 pixel @ 30cm distance
 
 **Tracking distance**
 
-ar_sys: 1ft to 4ft  
-visp_auto_tracker: 2ft to 10ft  
-ar_track_alvar: 1ft to 10ft
+ar_sys: 30cm to 120cm  
+visp_auto_tracker: 60cm to 300cm  
+ar_track_alvar: 30cm to 300cm
 
 
 **Sampling frequency**
