@@ -21,4 +21,7 @@
 
 	<node pkg="tf" type="static_transform_publisher" name="mav_to_camera" output="screen" args="0 0 0 0.785398163 0 0 mav camera 10" />
 
+  	<node pkg="rviz" type="rviz" name="rviz" />
+
+
 </launch>
