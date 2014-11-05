@@ -1,0 +1,32 @@
+<launch>
+	<node ns="camera1" pkg="image_proc" type="image_proc" name="image_procg" />
+	<node ns="camera1" pkg="uvc_camera" type="uvc_camera_node" name="uvc_camera" output="screen">
+		<param name="width" type="int" value="640" />
+		<param name="height" type="int" value="480" />
+		<param name="fps" type="int" value="30" />
+		<param name="frame_id" type="string" value="/camera1" />
+		<param name="device" type="string" value="/dev/video1" />
+		<param name="camera_info_url" type="string" value="file:///home/ablarry91/.ros/camera_info/head_camera.yaml"/>
+	</node>
+
+	<node pkg="ar_sys" type="single_board" name="ar_single_board" output="screen">
+		<remap from="/camera_info" to="/camera1/camera_info" />
+		<remap from="/image" to="/camera1/image_rect_color" />
+
+		<param name="image_is_rectified" type="bool" value="true"/>
+		<param name="marker_size" type="double" value="0.05"/>
+		<param name="board_config" type="string" value="$(find ar_sys)/data/single/board.yml"/>
+		<param name="board_frame" type="string" value="/board1" />
+		<param name="draw_markers" type="bool" value="false" />
+		<param name="draw_markers_cube" type="bool" value="true" />
+		<param name="draw_markers_axis" type="bool" value="false" />
+	</node>
+
+	<node pkg="image_view" type="image_view" name="image_view" output="screen">
+		<remap from="image" to="/ar_single_board/result" />
+
+		<param name="autosize" type="bool" value="true" />
+	</node>
+
+</launch>
+

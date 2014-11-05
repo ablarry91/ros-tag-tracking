@@ -1,0 +1,24 @@
+<launch>
+	<arg name="marker_size" default="4.4" />
+	<arg name="max_new_marker_error" default="0.08" />
+	<arg name="max_track_error" default="0.2" />
+	<arg name="cam_image_topic" default="/camera1/image_color" />
+	<arg name="cam_info_topic" default="/camera1/camera_info" />	
+	<arg name="output_frame" default="/camera1" />
+
+	<node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="false" output="screen" args="$(arg marker_size) $(arg max_new_marker_error) $(arg max_track_error) $(arg cam_image_topic) $(arg cam_info_topic) $(arg output_frame)" />e>
+
+
+	<node ns="camera1" pkg="image_proc" type="image_proc" name="image_procg" />
+	<node ns="camera1" pkg="uvc_camera" type="uvc_camera_node" name="uvc_camera" output="screen">
+		<param name="width" type="int" value="640" />
+		<param name="height" type="int" value="480" />
+		<param name="fps" type="int" value="30" />
+		<param name="frame_id" type="string" value="/camera1" />
+		<param name="device" type="string" value="/dev/video1" />
+		<param name="camera_info_url" type="string" value="file:///home/ablarry91/.ros/camera_info/head_camera.yaml"/>
+	</node>
+
+	<node pkg="tf" type="static_transform_publisher" name="mav_to_camera" output="screen" args="0 0 0 0.785398163 0 0 mav camera 10" />
+
+</launch>
