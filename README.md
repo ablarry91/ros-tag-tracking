@@ -41,7 +41,7 @@ In all the proceeding launch files, you will need to specify the path to your .y
 
 ![camera calibration](https://raw.githubusercontent.com/ablarry91/ros-tag-tracking/master/calibration.png)
 
-##GET THIS REPO
+## GET THIS REPO
 
 Download this repository and save into your catkin/src folder.  Afterwords, update your catkin and ROS workplaces with:
 
@@ -49,7 +49,7 @@ Download this repository and save into your catkin/src folder.  Afterwords, upda
 `rospack profile`
 
 
-##SETUP OF ar_sys
+## SETUP OF ar_sys
 
 ar_sys achieves 3D pose estimation through the identification of ArUco marker boards.  It is fortunately released to the ROS environment and fairly well documented.  The appeal in this is that the user can quickly download the necessary packages and build an adequate launch file for achieving functionality.  Download the package with:  
 `sudo apt-get install ros-indigo-ar_sys`
@@ -73,7 +73,7 @@ Upon running the launch file, you should notice an output similar to the image b
 ![ar_sys](https://raw.githubusercontent.com/andrewturchina/miniproject1/master/ar_sys_pic.png)
 
 
-##SETUP OF ar_pose
+## SETUP OF ar_pose
 
 ar_pose is similar in context to ar_sys.  
 
@@ -100,7 +100,7 @@ to see a live readout of the QR code's pose.  Note that the XYZ position coordin
 
 ![visp_auto_tracker](https://raw.githubusercontent.com/andrewturchina/miniproject1/master/visp_pic.png)
 
-##SETUP OF ar_track_alvar
+## SETUP OF ar_track_alvar
 
 Though the [ROS wiki](http://wiki.ros.org/ar_track_alvar) for ar_track_alvar does not illustrate the package as released to the ROS environment, one can still acquire it with the following:
 `sudo apt-get install ros-indigo-ar-track-alvar`
@@ -118,11 +118,11 @@ Upon launching, it is likely that your rviz is not configured correctly.  To do 
 
 ![ar_track_alvar](https://raw.githubusercontent.com/ablarry91/ros-tag-tracking/master/ar_track_alvar.png)
 
-##RESULTS
+## RESULTS
 
 Generally speaking, there is a golden ratio between camera resolution and the physical size of your tags.  Higher resolution and larger tags will increase the tracking distance, but at an obvious cost of more sophisticated hardware and/or larger amounts of required real estate.  In any case, we noted our tracking results given 5cmx5cm markers and a 640x480 webcam resolution.  
 
-###Quantifiable:
+### Quantifiable:
 
 **Noise estimation**
 
